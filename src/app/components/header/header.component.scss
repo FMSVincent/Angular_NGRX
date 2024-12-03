@@ -1,0 +1,29 @@
+.header {
+  background-color: #50118b;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  filter: contrast(150%);
+
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  background-color: rgba(0, 123, 255, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: rgba(0, 123, 255, 0.7);
+}
+

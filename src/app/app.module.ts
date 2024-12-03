@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -11,6 +10,7 @@ import { PartsListComponent } from './components/parts-list/parts-list.component
 import { CurrentPurchaseComponent } from './components/current-purchase/current-purchase.component';
 import { PartsComponent } from './components/parts/parts.component';
 import { PageDetailsComponent } from './components/page-details/page-details.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { PageDetailsComponent } from './components/page-details/page-details.com
     CurrentPurchaseComponent,
     PartsComponent,
     PageDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
