@@ -6,9 +6,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HeaderComponent } from './components/header/header.component';
+import { ListAircraftsComponent } from './components/list-aircrafts/list-aircrafts.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, ListAircraftsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
