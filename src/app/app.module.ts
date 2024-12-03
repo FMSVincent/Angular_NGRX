@@ -10,10 +10,17 @@ import { DetailsAircraftComponent } from './components/details-aircraft/details-
 import { PartsListComponent } from './components/parts-list/parts-list.component';
 import { CurrentPurchaseComponent } from './components/current-purchase/current-purchase.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { PartsComponent } from './components/parts/parts.component';
 
 @NgModule({
   declarations: [AppComponent, PartsComponent, DetailsAircraftComponent, PartsListComponent, CurrentPurchaseComponent],
+=======
+import { PageDetailsComponent } from './components/page-details/page-details.component';
+
+@NgModule({
+  declarations: [AppComponent, DetailsAircraftComponent, PartsListComponent, CurrentPurchaseComponent, PageDetailsComponent],
+>>>>>>> Stashed changes
 =======
 import { PageDetailsComponent } from './components/page-details/page-details.component';
 
