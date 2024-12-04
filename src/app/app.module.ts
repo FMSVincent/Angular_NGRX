@@ -11,6 +11,9 @@ import { CurrentPurchaseComponent } from './components/current-purchase/current-
 import { PartsComponent } from './components/parts/parts.component';
 import { PageDetailsComponent } from './components/page-details/page-details.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PartsReducer } from './ngrx/parts.reducer';
+import { PartsEffects } from './ngrx/parts.effects';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,10 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({ partsState: PartsReducer }),
+    EffectsModule.forRoot([PartsEffects]),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],

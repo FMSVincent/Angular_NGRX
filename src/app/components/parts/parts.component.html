@@ -1,4 +1,18 @@
-<div class="container">
+<div class="container" *ngIf="parts$ | async as state" [ngSwitch]="state.dataState">
+
+    <div *ngSwitchCase="partsStateEnum.INITIAL">
+      <div class="p-2">Initial State</div>
+    </div>
+  
+    <div *ngSwitchCase="partsStateEnum.LOADING">
+      <div class="p-2">Loading...</div>
+    </div>
+
+    <div *ngSwitchCase="partsStateEnum.LOADED">
+      <div class="p-2">Data Loaded</div>
+    </div>
+  </div>
+  
   <div>
     <div class="col-md-5">
       <h2>Liste des pièces</h2>
@@ -7,125 +21,24 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>category</th>
+            <th>Category</th>
             <th>Price</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>compass</td>
-            <td>Navigation</td>
-            <td>5000</td>
+          <tr *ngFor="let part of parts$">
+            <td>{{ part.id }}</td>
+            <td>{{ part.name }}</td>
+            <td>{{ part.category }}</td>
+            <td>{{ part.price }}</td>
             <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Gps</td>
-            <td>Navigation</td>
-            <td>10000</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Indic speed</td>
-            <td>Piloting</td>
-            <td>7500</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Indic altitude</td>
-            <td>Piloting</td>
-            <td>3500</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Altimeter</td>
-            <td>Piloting</td>
-            <td>3500</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Weather Radar</td>
-            <td>Flight environment</td>
-            <td>15000</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>anti-collision system</td>
-            <td>Flight environment</td>
-            <td>50000</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Add
-              </button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">
-                Rem
-              </button>
+              <button type="button" class="btn btn-outline-secondary">Add</button>
+              <button type="button" class="btn btn-outline-secondary">Rem</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>
+  
