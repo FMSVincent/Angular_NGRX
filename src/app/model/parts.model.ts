@@ -1,6 +1,6 @@
 export interface Parts {
     id: number;
     name: string;
-    catégory: string;
+    category: string;
     price: number;
   }

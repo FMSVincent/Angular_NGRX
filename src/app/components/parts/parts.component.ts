@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { GetAllPartsAction } from 'src/app/ngrx/parts.actions';
 import { PartsState, PartsStateEnum } from 'src/app/ngrx/parts.state';
-import { PartsService } from 'src/app/parts.service';
 
 @Component({
   selector: 'app-parts',
@@ -15,7 +14,7 @@ export class PartsComponent implements OnInit {
   parts$: Observable<PartsState> | null = null
   readonly partsStateEnum = PartsStateEnum
 
-  constructor(private partsService: PartsService, private store: Store<any>) { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
     this.getParts()
