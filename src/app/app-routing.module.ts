@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageDetailsComponent } from './components/page-details/page-details.component';
 import { ListAircraftsComponent } from './components/list-aircrafts/list-aircrafts.component';
 
-const routes: Routes = [{ path: '', component: ListAircraftsComponent }];
+const routes: Routes = [{ path: '', component: ListAircraftsComponent }, {path: 'details', component: PageDetailsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
