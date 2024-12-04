@@ -4,6 +4,15 @@
     { "id": 2, "prog": "A320", "design": false, "development": false },
     { "id": 3, "prog": "A380", "design": false, "development": true },
     { "id": 4, "prog": "A400M", "design": true, "development": true },
-    { "id": 5, "prog": "A330", "design": true, "development": false }
+    { "id": 4, "prog": "A330", "design": true, "development": false }
+  ],
+  "parts": [
+    { "id": 1, "name": "Compas", "catégorie": "Navigation", "price": 5000 },
+    { "id": 2, "name": "Gps", "catégorie": "Navigation", "price": 10000 },
+    { "id": 3, "name": "Indic vitesse", "catégorie": "Pilotage", "price": 7500 },
+    { "id": 4, "name": "Indic altitude", "catégorie": "Pilotage", "price": 3500 },
+    { "id": 5, "name": "Altimètre", "catégorie": "Pilotage", "price": 3500 },
+    { "id": 6, "name": "Radar météo", "catégorie": "Environnement de vol", "price": 15000 },
+    { "id": 7, "name": "Sys anti collision", "catégorie": "Environnement de vol", "price": 50000 }
   ]
 }
