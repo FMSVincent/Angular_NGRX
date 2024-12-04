@@ -12,6 +12,9 @@ import { PartsComponent } from './components/parts/parts.component';
 import { PageDetailsComponent } from './components/page-details/page-details.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListAircraftsComponent } from './components/list-aircrafts/list-aircrafts.component';
+import { AircraftsReducer } from './ngrx/aircrafts.reducer';
+import { AircraftsEffects } from './ngrx/aircrafts.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,11 @@ import { ListAircraftsComponent } from './components/list-aircrafts/list-aircraf
     ListAircraftsComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({airbusState : AircraftsReducer}),
+    EffectsModule.forRoot([AircraftsEffects]),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],

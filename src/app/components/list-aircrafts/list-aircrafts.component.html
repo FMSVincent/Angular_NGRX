@@ -1,5 +1,17 @@
 <div class="container">
-    <table class="table table-hover table-dark">
+  <ng-container *ngIf="aircraftsState$ | async as state" [ngSwitch]="state.dataState">
+    <ng-container *ngSwitchCase="aircraftsStateEnum.INITIAL">
+      <div class="p-2">Initial State</div>
+    </ng-container>
+    <ng-container *ngSwitchCase="aircraftsStateEnum.LOADING">
+      <div class="p-2">Loading</div>
+    </ng-container>
+    <ng-container *ngSwitchCase="aircraftsStateEnum.ERROR">
+      <div class="p-2">{{state.errorMessage}}</div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="aircraftsStateEnum.LOADED">
+      <table class="table table-hover table-dark">
         <thead>
           <tr>
             <th>Id</th>
@@ -9,20 +21,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>A350</td>
-            <td>true</td> 
-            <td>true</td> 
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>A350</td>
-            <td>true</td> 
-            <td>true</td> 
+          <tr *ngFor="let aircraft of state.aircrafts">
+           
+            <td>{{aircraft.id}}</td>
+            <td>{{aircraft.prog}}</td>
+            <td>{{aircraft.design}}</td>
+            <td>{{aircraft.development}}</td>
+  
           </tr>
         </tbody>
       </table>
+    </ng-container>
+    
+  </ng-container>
+
 
 </div>
-
