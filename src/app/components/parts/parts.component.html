@@ -1,37 +1,40 @@
-<div class="container" *ngIf="parts$ | async as state" [ngSwitch]="state.dataState">
-    <div *ngSwitchCase="partsStateEnum.INITIAL">
-      <div class="p-2">Initial State</div>
-    </div>
-    <div *ngSwitchCase="partsStateEnum.LOADING">
-      <div class="p-2">Loading...</div>
-    </div>
-    <div *ngSwitchCase="partsStateEnum.ERROR">
-      <div class="p-2 text-danger">{{state.errorMessage}}</div>
-    </div>
-    <div *ngSwitchCase="partsStateEnum.LOADED">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let part of state.parts">
-            <td>{{ part.id }}</td>
-            <td>{{ part.name }}</td>
-            <td>{{ part.category }}</td>
-            <td>{{ part.price }}</td>
-            <td>
-              <button type="button" class="btn btn-outline-secondary">Add</button>
-              <button type="button" class="btn btn-outline-secondary">Remove</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div
+  class="container"
+  *ngIf="parts$ | async as state"
+  [ngSwitch]="state.dataState"
+>
+  <div *ngSwitchCase="partsStateEnum.INITIAL">
+    <div class="p-2">Initial State</div>
   </div>
-  
+  <div *ngSwitchCase="partsStateEnum.LOADING">
+    <div class="p-2">Loading...</div>
+  </div>
+  <div *ngSwitchCase="partsStateEnum.ERROR">
+    <div class="p-2 text-danger">{{ state.errorMessage }}</div>
+  </div>
+  <div *ngSwitchCase="partsStateEnum.LOADED">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let part of state.parts">
+          <td>{{ part.id }}</td>
+          <td>{{ part.name }}</td>
+          <td>{{ part.price }}</td>
+          <td>
+            <button type="button" class="btn btn-outline-secondary">Add</button>
+            <button type="button" class="btn btn-outline-secondary">
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

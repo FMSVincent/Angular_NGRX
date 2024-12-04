@@ -1,10 +1,11 @@
+.container-fluid {
+  margin-bottom: 7rem;
+}
+
 .header {
-  background-color: #50118b;
   color: white;
   padding: 20px;
   text-align: center;
-  filter: contrast(150%);
-
 }
 
 .header a:hover {
@@ -26,4 +27,3 @@
 .btn:hover {
   background-color: rgba(0, 123, 255, 0.7);
 }
-

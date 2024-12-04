@@ -1,24 +1,22 @@
-import { Aircraft } from "../model/aircraft.model";
-
+import { Aircraft } from '../model/aircraft.model';
 
 export enum AircraftsStateEnum {
-    
-    LOADING = "Loading",
-    LOADED = "Loaded",
-    ERROR = "Error",
-    INITIAL = " Initial"
+  LOADING = 'Loading',
+  LOADED = 'Loaded',
+  ERROR = 'Error',
+  INITIAL = ' Initial',
 }
 
 export interface AircraftsState {
-
-    aircrafts :  Aircraft[],
-    errorMessage : string,
-    dataState : AircraftsStateEnum
+  aircrafts: Aircraft[];
+  aircraftChoosen: null;
+  errorMessage: string;
+  dataState: AircraftsStateEnum;
 }
 
-export const initSate : AircraftsState = {
-
-    aircrafts : [], 
-    errorMessage: "",
-    dataState : AircraftsStateEnum.INITIAL
-}
+export const initSate: AircraftsState = {
+  aircrafts: [],
+  aircraftChoosen: null,
+  errorMessage: '',
+  dataState: AircraftsStateEnum.INITIAL,
+};

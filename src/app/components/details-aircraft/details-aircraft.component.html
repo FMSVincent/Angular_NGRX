@@ -1,18 +1,28 @@
-<div class="card" style="width: 18rem">
-  <img
-    class="card-img-top"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Turkish.a330-200.tc-jnd.arp.jpg/1920px-Turkish.a330-200.tc-jnd.arp.jpg"
-    alt="Card image cap"
-  />
-  <div class="card-body">
-    <h5 class="card-title">Id: Prog:</h5>
-    <div class="card-text">
-      <input type="checkbox" aria-label="Checkbox for following text input" />
-      <label for="checkbox">Design</label>
+<div class="card" style="width: 18rem" *ngIf="aircraftDetails$">
+  <ng-container>
+    <img
+      class="card-img-top"
+      src="{{ aircraftDetails$.img }}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Id: Prog: {{ aircraftDetails$.prog }}</h5>
+      <div class="card-text">
+        <input
+          type="checkbox"
+          aria-label="Checkbox for following text input"
+          [checked]="aircraftDetails$.design ? 'checked' : ''"
+        />
+        <label for="checkbox">Design</label>
+      </div>
+      <div class="card-text">
+        <input
+          type="checkbox"
+          aria-label="Checkbox for following text input"
+          [checked]="aircraftDetails$.development ? 'checked' : ''"
+        />
+        <label for="checkbox">Developpement</label>
+      </div>
     </div>
-    <div class="card-text">
-      <input type="checkbox" aria-label="Checkbox for following text input" />
-      <label for="checkbox">Developpement</label>
-    </div>
-  </div>
+  </ng-container>
 </div>
