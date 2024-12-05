@@ -26,16 +26,15 @@
                     </div>
                   </div>
 
-                  <form action="#!">
+                  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
                     <div class="row gy-3 overflow-hidden">
                       <div class="col-12">
                         <div class="form-floating mb-3">
                           <input
                             type="email"
+                            formControlName="email"
                             class="form-control"
-                            name="email"
-                            id="email"
-                            placeholder="name@example.com"
+                            placeholder="Entrez l'email"
                             required
                           />
                           <label for="email" class="form-label">Email</label>
@@ -45,11 +44,9 @@
                         <div class="form-floating mb-3">
                           <input
                             type="password"
+                            formControlName="password"
                             class="form-control"
-                            name="password"
-                            id="password"
-                            value=""
-                            placeholder="Password"
+                            placeholder="Entrez le mot de passe"
                             required
                           />
                           <label for="password" class="form-label"

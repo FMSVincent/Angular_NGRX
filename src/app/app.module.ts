@@ -18,6 +18,9 @@ import { PartsReducer } from './ngrx/parts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
 import { PartsEffects } from './ngrx/parts.effects';
 import { SinginComponent } from './components/singin/singin.component';
+import { UserReducer } from './ngrx/users/users.reducer';
+import { UserEffects } from './ngrx/users/users.effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,16 +30,23 @@ import { SinginComponent } from './components/singin/singin.component';
     CurrentPurchaseComponent,
     PartsComponent,
     PageDetailsComponent,
-    HeaderComponent, 
-    ListAircraftsComponent, SinginComponent
+    HeaderComponent,
+    ListAircraftsComponent,
+    SinginComponent,
   ],
   imports: [
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({airbusState:AircraftsReducer, partsState:PartsReducer}),
-    EffectsModule.forRoot([AircraftsEffects, PartsEffects]),
+    StoreModule.forRoot({
+      airbusState: AircraftsReducer,
+      partsState: PartsReducer,
+      userState: UserReducer,
+    }),
+    EffectsModule.forRoot([AircraftsEffects, PartsEffects, UserEffects]),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],

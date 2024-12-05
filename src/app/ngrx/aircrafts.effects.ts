@@ -10,6 +10,7 @@ import {
   GetAllAircraftsActionError,
   GetAllAircraftsActionSuccess,
 } from './aircrafts.actions';
+import { Aircraft } from '../model/aircraft.model';
 
 @Injectable()
 export class AircraftsEffects {
@@ -36,7 +37,9 @@ export class AircraftsEffects {
       ofType(AircraftsActionsTypes.GET_AIRCRAFT_BY_ID),
       mergeMap((action: any) => {
         return this.AicraftsApiService.getAircraftById(action.payload).pipe(
-          map((aircraft: any) => new GetAircraftsByIdActionSuccess(aircraft)),
+          map(
+            (aircraft: Aircraft) => new GetAircraftsByIdActionSuccess(aircraft)
+          ),
           catchError((err) => of(new GetAircraftsByIdActionError(err.message)))
         );
       })

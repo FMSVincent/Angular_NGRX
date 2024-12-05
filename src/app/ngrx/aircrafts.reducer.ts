@@ -12,7 +12,6 @@ export function AircraftsReducer(
 ) {
   switch (action.type) {
     case AircraftsActionsTypes.GET_ALL_AIRCRAFTS:
-      console.log('loading!');
       return { ...state, dataState: AircraftsStateEnum.LOADING };
 
     case AircraftsActionsTypes.GET_ALL_AIRCRAFTS_SUCCESS:
