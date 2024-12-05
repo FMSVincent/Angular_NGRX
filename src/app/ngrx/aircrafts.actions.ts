@@ -26,8 +26,7 @@ export class GetAircraftsByIdAction implements Action {
 }
 
 export class GetAircraftsByIdActionSuccess implements Action {
-  type: AircraftsActionsTypes =
-    AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_Success;
+  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_Success;
   constructor(public payload: Aircraft) {}
 }
 
@@ -48,7 +47,6 @@ export class GetAllAircraftsActionError implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_ALL_AIRCRAFTS_ERROR;
   constructor(public payload: string) {}
 }
-<<<<<<< HEAD
 export class GetDesignedAircraftsAction implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS;
   constructor(public payload: any) {}
@@ -59,7 +57,8 @@ export class GetDesignedAircraftsActionSuccess implements Action {
 }
 export class GetDesignedAircraftsActionError implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_ERROR;
-=======
+  constructor(public payload: string) {}
+}
 // Development
 export class GetDevelopmentAircraftsAction implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS;
@@ -71,7 +70,6 @@ export class GetDevelopmentAircraftsActionSuccess implements Action {
 }
 export class GetDevelopmentAircraftsActionError implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_ERROR;
->>>>>>> origin/development
   constructor(public payload: string) {}
 }
 

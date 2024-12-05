@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-<<<<<<< HEAD
 import { GetDesignedAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
 import { AicraftsApiService } from 'src/app/services/aicrafts-api.service';
-=======
 import { GetDevelopmentAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
->>>>>>> origin/development
 
 @Component({
   selector: 'app-header',
@@ -14,16 +11,11 @@ import { GetDevelopmentAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
 })
 export class HeaderComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private aircraftsService : AicraftsApiService, private store : Store) { }
-=======
-  constructor(private store:Store) { }
->>>>>>> origin/development
 
   ngOnInit(): void {
   }
 
-<<<<<<< HEAD
   getDesignedAicrafts(){
     this.store.dispatch(new GetDesignedAircraftsAction({}));
   }
@@ -31,12 +23,10 @@ export class HeaderComponent implements OnInit {
   getAircraftsByWordKey(){
 
   }
-=======
   getDevelopmentAircrafts(){
     this.store.dispatch(new GetDevelopmentAircraftsAction({
       
     }))
   }
 
->>>>>>> origin/development
 }
