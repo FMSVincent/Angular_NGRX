@@ -33,7 +33,11 @@ export class SinginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.select(getDataState).subscribe((data) => {
+      if (data) this.router.navigateByUrl('/');
+    });
+  }
 
   onSubmit(form: FormGroup) {
     if (form.valid) {

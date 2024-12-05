@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
+  GetAircraftsByKeywordAction,
   GetAllAircraftsAction,
   GetDesignedAircraftsAction,
 } from 'src/app/ngrx/aircrafts.actions';
@@ -13,12 +14,19 @@ import { GetDevelopmentAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(
-    private aircraftsService: AicraftsApiService,
-    private store: Store
-  ) {}
+  keyWord: string;
 
-  ngOnInit(): void {}
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    this.getAllAircrafts();
+  }
+
+  getKeyWord() {
+    if (this.keyWord) {
+      this.store.dispatch(new GetAircraftsByKeywordAction(this.keyWord));
+    }
+  }
 
   getDesignedAicrafts() {
     this.store.dispatch(new GetDesignedAircraftsAction({}));

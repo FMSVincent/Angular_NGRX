@@ -14,19 +14,38 @@ export enum AircraftsActionsTypes {
   GET_DESIGNED_AIRCRAFTS_SUCCESS = '[Aircrafts] Get Disigned Aircrafts Success',
   GET_DESIGNED_AIRCRAFTS_ERROR = '[Aircrafts] Get Disigned Aircrafts Error',
 
-
   GET_DEVELOPMENT_AIRCRAFTS = '[Aicrafts] Get development Aircrafts',
   GET_DEVELOPMENT_AIRCRAFTS_SUCCESS = '[Aicrafts] Get development Aircrafts Success',
   GET_DEVELOPMENT_AIRCRAFTS_ERROR = '[Aicrafts] Get development Aircrafts Error',
+
+  GET_AIRCRAFTS_BY_KEYWORD = '[Aicrafts] Get Aircraft By Keyword',
+  GET_AIRCRAFTS_BY_KEYWORD_SUCCESS = '[Aicrafts] Get Aircraft By Keyword',
+  GET_AIRCRAFTS_BY_KEYWORD_ERROR = '[Aicrafts] Get Aircraft By Keyword',
 }
 
+export class GetAircraftsByKeywordAction implements Action {
+  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_AIRCRAFTS_BY_KEYWORD;
+  constructor(public payload: string) {}
+}
+export class GetAircraftsByKeywordActionSuccess implements Action {
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_AIRCRAFTS_BY_KEYWORD_SUCCESS;
+  constructor(public payload: Aircraft[]) {}
+}
+export class GetAircraftsByKeywordActionError implements Action {
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_AIRCRAFTS_BY_KEYWORD_ERROR;
+  constructor(public payload: string) {}
+}
+/////////////////////////////////////////
 export class GetAircraftsByIdAction implements Action {
   type: AircraftsActionsTypes = AircraftsActionsTypes.GET_AIRCRAFT_BY_ID;
   constructor(public payload: number) {}
 }
 
 export class GetAircraftsByIdActionSuccess implements Action {
-  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_Success;
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_Success;
   constructor(public payload: Aircraft) {}
 }
 
@@ -52,11 +71,13 @@ export class GetDesignedAircraftsAction implements Action {
   constructor(public payload: any) {}
 }
 export class GetDesignedAircraftsActionSuccess implements Action {
-  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_SUCCESS;
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_SUCCESS;
   constructor(public payload: Aircraft[]) {}
 }
 export class GetDesignedAircraftsActionError implements Action {
-  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_ERROR;
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_ERROR;
   constructor(public payload: string) {}
 }
 // Development
@@ -65,15 +86,20 @@ export class GetDevelopmentAircraftsAction implements Action {
   constructor(public payload: any) {}
 }
 export class GetDevelopmentAircraftsActionSuccess implements Action {
-  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_SUCCESS;
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_SUCCESS;
   constructor(public payload: Aircraft[]) {}
 }
 export class GetDevelopmentAircraftsActionError implements Action {
-  type: AircraftsActionsTypes = AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_ERROR;
+  type: AircraftsActionsTypes =
+    AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_ERROR;
   constructor(public payload: string) {}
 }
 
-
-export type AircraftsActions =  | GetAllAircraftsAction  | GetAllAircraftsActionSuccess  
-                                | GetAllAircraftsActionError | GetDesignedAircraftsAction 
-                                | GetDesignedAircraftsActionSuccess | GetDesignedAircraftsActionError;
+export type AircraftsActions =
+  | GetAllAircraftsAction
+  | GetAllAircraftsActionSuccess
+  | GetAllAircraftsActionError
+  | GetDesignedAircraftsAction
+  | GetDesignedAircraftsActionSuccess
+  | GetDesignedAircraftsActionError;

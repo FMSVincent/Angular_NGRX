@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AicraftsApiService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public getAicrafts() {
     return this.http.get<Aircraft[]>('http://localhost:3000/aircrafts');
@@ -19,9 +19,19 @@ export class AicraftsApiService {
   }
 
   public getDesignAircrafts(): Observable<Aircraft[]> {
-    return this.http.get<Aircraft[]>(environment.host + "/aircrafts?design=true");
+    return this.http.get<Aircraft[]>(
+      environment.host + '/aircrafts?design=true'
+    );
   }
   public getDevelopmentAircrafts(): Observable<Aircraft[]> {
-    return this.http.get<Aircraft[]>(environment.host + "/aircrafts?development=true");
+    return this.http.get<Aircraft[]>(
+      environment.host + '/aircrafts?development=true'
+    );
+  }
+
+  public getAirCraftByKeyWord(keyWord: string): Observable<Aircraft[]> {
+    return this.http.get<Aircraft[]>(
+      `${environment.host}/aircrafts?prog_like=${keyWord}`
+    );
   }
 }

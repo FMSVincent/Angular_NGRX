@@ -3,9 +3,12 @@ import { AicraftsApiService } from '../services/aicrafts-api.service';
 import { Inject, Injectable } from '@angular/core';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
-import {AircraftsActionsTypes,
+import {
+  AircraftsActionsTypes,
   GetAircraftsByIdActionError,
   GetAircraftsByIdActionSuccess,
+  GetAircraftsByKeywordActionError,
+  GetAircraftsByKeywordActionSuccess,
   GetAllAircraftsActionError,
   GetAllAircraftsActionSuccess,
   GetDesignedAircraftsActionError,
@@ -15,7 +18,10 @@ import { Aircraft } from '../model/aircraft.model';
 
 @Injectable()
 export class AircraftsEffects {
-  constructor(private AicraftsApiService: AicraftsApiService,private effectsActions: Actions ) {}
+  constructor(
+    private AicraftsApiService: AicraftsApiService,
+    private effectsActions: Actions
+  ) {}
 
   getAllAircraftsEffect: Observable<Action> = createEffect(() =>
     this.effectsActions.pipe(
@@ -44,17 +50,35 @@ export class AircraftsEffects {
     )
   );
 
-  getDesignedAicraftsEffect : Observable<Action> = createEffect(
-    () => this.effectsActions.pipe(
-        ofType(AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS),
-        mergeMap((action: any) => {
-          return this.AicraftsApiService.getDesignAircrafts().pipe(
-            map((aircrafts) => new GetDesignedAircraftsActionSuccess(aircrafts)),
-            catchError((err) => of(new GetDesignedAircraftsActionError(err.message)))
+  getDesignedAicraftsEffect: Observable<Action> = createEffect(() =>
+    this.effectsActions.pipe(
+      ofType(AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS),
+      mergeMap((action: any) => {
+        return this.AicraftsApiService.getDesignAircrafts().pipe(
+          map((aircrafts) => new GetDesignedAircraftsActionSuccess(aircrafts)),
+          catchError((err) =>
+            of(new GetDesignedAircraftsActionError(err.message))
           )
-        })
-
-
+        );
+      })
     )
-)
+  );
+
+  getAircraftByKeyword: Observable<Action> = createEffect(() =>
+    this.effectsActions.pipe(
+      ofType(AircraftsActionsTypes.GET_AIRCRAFTS_BY_KEYWORD),
+      mergeMap((action: any) => {
+        console.log(action.payload, 'action');
+
+        return this.AicraftsApiService.getAirCraftByKeyWord(
+          action.payload
+        ).pipe(
+          map((aircrafts) => new GetAllAircraftsActionSuccess(aircrafts)),
+          catchError((err) =>
+            of(new GetAircraftsByKeywordActionError(err.message))
+          )
+        );
+      })
+    )
+  );
 }

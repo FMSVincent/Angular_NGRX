@@ -8,7 +8,7 @@ export enum UserStateEnum {
 }
 
 export interface UserState {
-  user: null;
+  user: User | null;
   errorMessage: string;
   dataState: UserStateEnum;
 }

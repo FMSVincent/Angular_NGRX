@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getUser(user: User): Observable<User> {
-    return this.http.get<User>(
+  getUser(user: User): Observable<User[]> {
+    return this.http.get<User[]>(
       `http://localhost:3000/users?email=${user.email}&password=${user.password}`
     );
   }
