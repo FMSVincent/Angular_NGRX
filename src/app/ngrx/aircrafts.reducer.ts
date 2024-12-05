@@ -46,6 +46,25 @@ export function AircraftsReducer(
      case AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_ERROR: 
       return {...state, dataState : AircraftsStateEnum.LOADED, errorMessage :(<AircraftsActions> action).payload};
 
+      // development
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS:
+        console.log('loading!');
+        return { ...state, dataState: AircraftsStateEnum.LOADING };
+  
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_SUCCESS:
+        return {...state,
+          dataState: AircraftsStateEnum.LOADED,
+          aircrafts: (<AircraftsActions>action).payload
+        };
+  
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_ERROR:
+        console.log('loading!');
+        return {
+          ...state,
+          dataState: AircraftsStateEnum.ERROR,
+          errorMessage: (<AircraftsActions>action).payload
+        };
+
     default:
       return {...state };
   }
