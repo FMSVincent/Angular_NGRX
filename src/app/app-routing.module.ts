@@ -4,8 +4,9 @@ import { PageDetailsComponent } from './components/page-details/page-details.com
 import { ListAircraftsComponent } from './components/list-aircrafts/list-aircrafts.component';
 
 const routes: Routes = [
-  { path: '', component: ListAircraftsComponent },
-  { path: 'details/:id', component: PageDetailsComponent },
+  {path: '', component: ListAircraftsComponent },
+  {path : "list-aircrafts", component: ListAircraftsComponent},
+  {path: 'details/:id', component: PageDetailsComponent },
 ];
 
 @NgModule({

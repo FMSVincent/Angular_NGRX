@@ -17,6 +17,7 @@ import { AircraftsReducer } from './ngrx/aircrafts.reducer';
 import { PartsReducer } from './ngrx/parts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
 import { PartsEffects } from './ngrx/parts.effects';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PartsEffects } from './ngrx/parts.effects';
     StoreModule.forRoot({airbusState:AircraftsReducer, partsState:PartsReducer}),
     EffectsModule.forRoot([AircraftsEffects, PartsEffects]),
     StoreDevtoolsModule.instrument(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

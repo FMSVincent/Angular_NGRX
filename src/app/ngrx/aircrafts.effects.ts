@@ -3,20 +3,18 @@ import { AicraftsApiService } from '../services/aicrafts-api.service';
 import { Inject, Injectable } from '@angular/core';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
-import {
-  AircraftsActionsTypes,
+import {AircraftsActionsTypes,
   GetAircraftsByIdActionError,
   GetAircraftsByIdActionSuccess,
   GetAllAircraftsActionError,
   GetAllAircraftsActionSuccess,
+  GetDesignedAircraftsActionError,
+  GetDesignedAircraftsActionSuccess,
 } from './aircrafts.actions';
 
 @Injectable()
 export class AircraftsEffects {
-  constructor(
-    private AicraftsApiService: AicraftsApiService,
-    private effectsActions: Actions
-  ) {}
+  constructor(private AicraftsApiService: AicraftsApiService,private effectsActions: Actions ) {}
 
   getAllAircraftsEffect: Observable<Action> = createEffect(() =>
     this.effectsActions.pipe(
@@ -42,4 +40,18 @@ export class AircraftsEffects {
       })
     )
   );
+
+  getDesignedAicraftsEffect : Observable<Action> = createEffect(
+    () => this.effectsActions.pipe(
+        ofType(AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS),
+        mergeMap((action: any) => {
+          return this.AicraftsApiService.getDesignAircrafts().pipe(
+            map((aircrafts) => new GetDesignedAircraftsActionSuccess(aircrafts)),
+            catchError((err) => of(new GetDesignedAircraftsActionError(err.message)))
+          )
+        })
+
+
+    )
+)
 }

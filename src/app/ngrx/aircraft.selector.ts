@@ -10,6 +10,5 @@ export const getDataState = createSelector(
 );
 
 export const getErrorMessage = createSelector(
-  selectAircraftsState,
-  (state: AircraftsState) => state.errorMessage
+    selectAircraftsState,(state: AircraftsState) => state.errorMessage
 );
