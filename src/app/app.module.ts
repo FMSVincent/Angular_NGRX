@@ -17,6 +17,7 @@ import { AircraftsReducer } from './ngrx/aircrafts.reducer';
 import { PartsReducer } from './ngrx/parts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
 import { PartsEffects } from './ngrx/parts.effects';
+import { SinginComponent } from './components/singin/singin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PartsEffects } from './ngrx/parts.effects';
     PartsComponent,
     PageDetailsComponent,
     HeaderComponent, 
-    ListAircraftsComponent
+    ListAircraftsComponent, SinginComponent
   ],
   imports: [
     HttpClientModule,
