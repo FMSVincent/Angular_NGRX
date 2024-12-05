@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import {
+  GetAllAircraftsAction,
+  GetDesignedAircraftsAction,
+} from 'src/app/ngrx/aircrafts.actions';
+import { AicraftsApiService } from 'src/app/services/aicrafts-api.service';
+import { GetDevelopmentAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(
+    private aircraftsService: AicraftsApiService,
+    private store: Store
+  ) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  getDesignedAicrafts() {
+    this.store.dispatch(new GetDesignedAircraftsAction({}));
   }
 
+  getAllAircrafts() {
+    this.store.dispatch(new GetAllAircraftsAction({}));
+  }
+
+  getDevelopmentAircrafts() {
+    this.store.dispatch(new GetDevelopmentAircraftsAction({}));
+  }
 }

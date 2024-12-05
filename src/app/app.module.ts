@@ -18,9 +18,9 @@ import { PartsReducer } from './ngrx/parts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
 import { PartsEffects } from './ngrx/parts.effects';
 import { SinginComponent } from './components/singin/singin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserReducer } from './ngrx/users/users.reducer';
 import { UserEffects } from './ngrx/users/users.effects';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     }),
     EffectsModule.forRoot([AircraftsEffects, PartsEffects, UserEffects]),
     StoreDevtoolsModule.instrument(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,23 +3,21 @@
     <nav class="navbar navbar-expand-sm d-flex justify-content-between">
       <a class="navbar-brand text-light" href="#">AIRBUS</a>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-light">Aircrafts</a>
-        </li>
         <li>
-          <a class="nav-link text-light" href="#">Programs</a>
-        </li>
-        <li>
-          <a class="nav-link text-light" id="login" href="#">Login</a>
+          <a class="nav-link text-light" id="login" routerLink="signin"
+            >Login</a
+          >
         </li>
       </ul>
     </nav>
   </header>
   <div class="d-flex justify-content-between">
     <div>
-      <button class="btn">Aircrafts</button>
-      <button class="btn">Design</button>
-      <button class="btn">Developpement</button>
+      <button class="btn" (click)="getAllAircrafts()">Aircrafts</button>
+      <button class="btn" (click)="getDesignedAicrafts()">Design</button>
+      <button class="btn" (click)="getDevelopmentAircrafts()">
+        Developpement
+      </button>
     </div>
     <nav class="navbar navbar-light">
       <form class="d-flex">

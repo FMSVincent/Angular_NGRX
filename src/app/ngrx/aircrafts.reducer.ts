@@ -15,39 +15,56 @@ export function AircraftsReducer(
       return { ...state, dataState: AircraftsStateEnum.LOADING };
 
     case AircraftsActionsTypes.GET_ALL_AIRCRAFTS_SUCCESS:
-      return {
-        ...state,
-        dataState: AircraftsStateEnum.LOADED,
+      return {...state,dataState: AircraftsStateEnum.LOADED,
         aircrafts: (<AircraftsActions>action).payload,
       };
 
     case AircraftsActionsTypes.GET_ALL_AIRCRAFTS_ERROR:
-      console.log('loading!');
-      return {
-        ...state,
-        dataState: AircraftsStateEnum.ERROR,
+      return {...state,dataState: AircraftsStateEnum.ERROR,
         errorMessage: (<AircraftsActions>action).payload,
       };
 
     case AircraftsActionsTypes.GET_AIRCRAFT_BY_ID:
-      return {
-        ...state,
-        dataState: AircraftsStateEnum.LOADING,
+      return {...state, dataState: AircraftsStateEnum.LOADING,
       };
 
     case AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_Success:
-      return {
-        ...state,
-        aircraftChoosen: (<AircraftsActions>action).payload,
+      return {...state, aircraftChoosen: (<AircraftsActions>action).payload,
       };
 
     case AircraftsActionsTypes.GET_AIRCRAFT_BY_ID_ERROR:
-      return {
-        ...state,
-        errorMessage: (<AircraftsActions>action).payload,
+      return {...state, errorMessage: (<AircraftsActions>action).payload,
       };
+    
+    case AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS: 
+      return {...state, dataState:AircraftsStateEnum.LOADING };
+
+    case AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_SUCCESS: 
+      return {...state, dataState : AircraftsStateEnum.LOADED, aircrafts:(<AircraftsActions> action).payload};
+
+     case AircraftsActionsTypes.GET_DESIGNED_AIRCRAFTS_ERROR: 
+      return {...state, dataState : AircraftsStateEnum.LOADED, errorMessage :(<AircraftsActions> action).payload};
+
+      // development
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS:
+        console.log('loading!');
+        return { ...state, dataState: AircraftsStateEnum.LOADING };
+  
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_SUCCESS:
+        return {...state,
+          dataState: AircraftsStateEnum.LOADED,
+          aircrafts: (<AircraftsActions>action).payload
+        };
+  
+      case AircraftsActionsTypes.GET_DEVELOPMENT_AIRCRAFTS_ERROR:
+        console.log('loading!');
+        return {
+          ...state,
+          dataState: AircraftsStateEnum.ERROR,
+          errorMessage: (<AircraftsActions>action).payload
+        };
 
     default:
-      return { ...state };
+      return {...state };
   }
 }
